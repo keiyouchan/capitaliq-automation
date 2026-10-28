@@ -8,6 +8,6 @@ node_modules/
 **/browser-profile/
 **/capitaliq_profile/
 **/downloads/
-capitaliq-automation/capitaliq-automation/json/*
-!capitaliq-automation/capitaliq-automation/json/config.example.json
-capitaliq-automation/capitaliq-automation/datasets/
+capitaliq-automation/json/*
+!capitaliq-automation/json/config.example.json
+capitaliq-automation/datasets/

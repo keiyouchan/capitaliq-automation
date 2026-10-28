@@ -7,11 +7,10 @@ A Python Playwright tool for exporting S&P Capital IQ Pro Screener data in resum
 ## Project layout
 
 ```text
-playwright-project/
-├── AGENTS.md
+capitaliq-automation/
 ├── requirements.txt
-├── tests/
-└── capitaliq-automation/capitaliq-automation/
+├── .gitignore
+└── capitaliq-automation/
     ├── README.md / README_zh.md
     ├── capitaliq_screener_export.py
     ├── .cvenv/                   # active local Python environment
@@ -40,7 +39,7 @@ Requirements: Python 3.10+, the Python package pinned in `requirements.txt` (`pl
 cd capitaliq-automation/capitaliq-automation
 python3 -m venv .cvenv
 .cvenv/bin/python -m pip install --upgrade pip
-.cvenv/bin/python -m pip install -r ../../requirements.txt
+.cvenv/bin/python -m pip install -r ../requirements.txt
 .cvenv/bin/python -m playwright install chromium
 cp -n json/config.example.json json/config.json
 ```
@@ -161,6 +160,6 @@ Classic trees are consumed only after loading placeholders disappear and the nod
 - Loading overlay: wait for calculation; increasing the timeout may help a slow screen.
 - Locator or parameter errors: inspect matching files in `downloads/failure/` and `json/failure/`.
 
-From the application directory, run `.cvenv/bin/python -B -m unittest discover -s ../../tests -v`. Tests cover Criteria confirmation, dataset isolation, partition reuse, column budgets and ensuring pending batches cannot download during dry-run. Check syntax with `.cvenv/bin/python -m py_compile capitaliq_screener_export.py`, then run `--dry-run`. Dry-run verifies selection and cleanup, not export format, file validity, or the entire category tree. Confirm the first real file and its columns before relying on a long run.
+From the application directory, run `.cvenv/bin/python -m py_compile capitaliq_screener_export.py dataset_workflow.py legacy_selector.py`, then run `--dry-run`. Dry-run verifies selection and cleanup, not export format, file validity, or the entire category tree. Confirm the first real file and its columns before relying on a long run.
 
 Keep profiles, checkpoints, proprietary downloads, and failure diagnostics local. `.gitignore` excludes these runtime artifacts; the shareable configuration template remains included.

@@ -7,11 +7,10 @@
 ## 目录结构
 
 ```text
-playwright-project/
-├── AGENTS.md
+capitaliq-automation/
 ├── requirements.txt
-├── tests/
-└── capitaliq-automation/capitaliq-automation/
+├── .gitignore
+└── capitaliq-automation/
     ├── README.md / README_zh.md
     ├── capitaliq_screener_export.py
     ├── .cvenv/                   # 当前使用的 Python 环境
@@ -40,7 +39,7 @@ playwright-project/
 cd capitaliq-automation/capitaliq-automation
 python3 -m venv .cvenv
 .cvenv/bin/python -m pip install --upgrade pip
-.cvenv/bin/python -m pip install -r ../../requirements.txt
+.cvenv/bin/python -m pip install -r ../requirements.txt
 .cvenv/bin/python -m playwright install chromium
 cp -n json/config.example.json json/config.json
 ```
@@ -161,6 +160,6 @@ Real Estate 全选在真实页面超过 250,000 行，网站拒绝运行。总�
 - 加载遮罩：等待页面计算完成；数据处理较慢时可增加等待上限。
 - 定位或时间参数错误：查看 `downloads/failure/` 截图及 `json/failure/` 中同时间戳的 DOM 文件。
 
-在程序目录执行 `.cvenv/bin/python -B -m unittest discover -s ../../tests -v`，可测试标准确认、数据集隔离、拆分复用、列容量，以及 dry-run 不恢复或下载未完成批次。另可执行 `.cvenv/bin/python -m py_compile capitaliq_screener_export.py` 检查语法，再运行 `--dry-run`。dry-run 不验证实际导出格式、文件内容或整棵分类树；长时间运行前应检查首个下载文件及列名。
+在程序目录执行 `.cvenv/bin/python -m py_compile capitaliq_screener_export.py dataset_workflow.py legacy_selector.py` 检查语法，再运行 `--dry-run`。dry-run 不验证实际导出格式、文件内容或整棵分类树；长时间运行前应检查首个下载文件及列名。
 
 登录 Profile、断点、专有下载数据及诊断文件应留在本地；`.gitignore` 已排除这些运行文件，保留可分享的配置模板。
