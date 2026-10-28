@@ -8,10 +8,10 @@
 
 ```text
 capitaliq-automation/
+├── README.md / README_zh.md
 ├── requirements.txt
 ├── .gitignore
 └── capitaliq-automation/
-    ├── README.md / README_zh.md
     ├── capitaliq_screener_export.py
     ├── .cvenv/                   # 当前使用的 Python 环境
     ├── reference/                # recorded.py、recorded_time.py
@@ -36,7 +36,7 @@ capitaliq-automation/
 需要 Python 3.10+、`requirements.txt` 中锁定的 Python 依赖（`playwright==1.64.1`）、Playwright 安装的 Chromium，以及有 Screener／导出权限的 Capital IQ 账号。以下命令适用于 macOS/Linux，从项目根目录执行：
 
 ```bash
-cd capitaliq-automation/capitaliq-automation
+cd capitaliq-automation
 python3 -m venv .cvenv
 .cvenv/bin/python -m pip install --upgrade pip
 .cvenv/bin/python -m pip install -r ../requirements.txt
@@ -48,10 +48,10 @@ cp -n json/config.example.json json/config.json
 
 ## 快速开始（Quick Start）
 
-以下命令均在程序目录执行，与上面安装后的目录一致。新开终端时，先从项目根目录进入：
+以下命令均在内层 `capitaliq-automation/` 程序目录执行，与上面安装后的目录一致。新开终端时，先从项目根目录进入：
 
 ```bash
-cd capitaliq-automation/capitaliq-automation
+cd capitaliq-automation
 ```
 
 ### 银行数据：Regulated Depositories (U.S.)

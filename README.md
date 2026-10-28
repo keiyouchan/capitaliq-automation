@@ -8,10 +8,10 @@ A Python Playwright tool for exporting S&P Capital IQ Pro Screener data in resum
 
 ```text
 capitaliq-automation/
+├── README.md / README_zh.md
 ├── requirements.txt
 ├── .gitignore
 └── capitaliq-automation/
-    ├── README.md / README_zh.md
     ├── capitaliq_screener_export.py
     ├── .cvenv/                   # active local Python environment
     ├── reference/                # recorded.py and recorded_time.py
@@ -36,7 +36,7 @@ Application JSON files belong in `json/`. Chromium manages its own internal file
 Requirements: Python 3.10+, the Python package pinned in `requirements.txt` (`playwright==1.64.1`), Chromium installed by Playwright, and a Capital IQ account with Screener/export access. The following commands target macOS/Linux; start at the repository root:
 
 ```bash
-cd capitaliq-automation/capitaliq-automation
+cd capitaliq-automation
 python3 -m venv .cvenv
 .cvenv/bin/python -m pip install --upgrade pip
 .cvenv/bin/python -m pip install -r ../requirements.txt
@@ -48,10 +48,10 @@ If `.cvenv` already exists, skip environment creation and use its Python to inst
 
 ## Quick start
 
-All commands below assume you are in `capitaliq-automation/capitaliq-automation/`, as after installation. From a new terminal at the repository root, enter that directory first:
+All commands below assume you are in the inner `capitaliq-automation/` application directory, as after installation. From a new terminal at the repository root, enter that directory first:
 
 ```bash
-cd capitaliq-automation/capitaliq-automation
+cd capitaliq-automation
 ```
 
 ### Bank data: Regulated Depositories (U.S.)
