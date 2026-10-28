@@ -1,0 +1,13 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+.cvenv/
+node_modules/
+*.zip
+**/browser-profile/
+**/capitaliq_profile/
+**/downloads/
+capitaliq-automation/capitaliq-automation/json/*
+!capitaliq-automation/capitaliq-automation/json/config.example.json
+capitaliq-automation/capitaliq-automation/datasets/

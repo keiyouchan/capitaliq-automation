@@ -1,0 +1,53 @@
+{
+  "screener_url": "https://www.capitaliq.spglobal.com/web/client?auth=inherit#office/screener?perspective=127420",
+  "output_dir": "{CONFIG_DIR}/../downloads",
+  "profile_dir": "{CONFIG_DIR}/../browser-profile",
+  "state_file": "{CONFIG_DIR}/progress.json",
+  "all_time_points": true,
+  "target_fields_per_file": 10,
+  "cell_limit": 500000,
+  "id_columns": 2,
+  "row_count": null,
+  "expected_row_count": 46403,
+  "identifier_fields": ["Company Name", "SNL Institution Key"],
+  "initial_selected_fields": [
+    "Company Name",
+    "SNL Institution Key",
+    "City",
+    "State",
+    "Regulatory ID",
+    "Parent Name",
+    "Parent Regulatory ID",
+    "Cert Number"
+  ],
+  "download_timeout_ms": 300000,
+  "ui_timeout_ms": 30000,
+  "headless": false,
+  "slow_mo_ms": 100,
+  "selectors": {
+    "display_columns": ["role=button|Display Columns", "text=^Display Columns$"],
+    "company_types_filter": ["xpath=//*[translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='company types']/following::button[1]"],
+    "reporting_level_filter": ["xpath=//*[translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='reporting level']/following::button[1]"],
+    "operating_status_filter": ["xpath=//*[translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='operating status']/following::button[1]"],
+    "entity_type_filter": ["xpath=//*[translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='entity type']/following::button[1]"],
+    "select_all": ["role=button|^Select All$", "text=^Select All$"],
+    "filter_dismiss": [".grid > div:nth-child(2)"],
+    "run_screen": ["role=button|^Run Screen$", "text=^Run Screen$"],
+    "result_count": [
+      "[data-testid='result-count']",
+      "text=^RESULTS\\s*\\([\\d,]+\\)$",
+      "text=\\d+\\s*-\\s*\\d+\\s+of\\s+[\\d,]+\\s+records$"
+    ],
+    "category_tree": ["[role='tree']", ".jstree"],
+    "category_leaf_css": ["[role='treeitem']:not([aria-expanded])"],
+    "collapsed_category_css": ["[role='treeitem'][aria-expanded='false'] > .jstree-ocl", ".jstree-closed > .jstree-ocl"],
+    "add_selected_field": ["button[aria-label='icon-only-button'] >> nth=0"],
+    "selected_fields": ["[data-testid='selected-fields']", "text=Selected Fields"],
+    "remove_selected_field": ["button[aria-label='icon-only-button'] >> nth=1"],
+    "apply_columns": ["[data-testid='apply']", "role=button|^Apply$"],
+    "export_mode": ["role=button|Results As", "text=^Results As"],
+    "export_values_option": ["role=option|Results As Values", "text=^Results As Values$"],
+    "export": ["role=button|^Export$"],
+    "download_ready": ["role=link|Results are ready for", "text=Results are ready for"]
+  }
+}
